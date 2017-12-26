@@ -1,0 +1,47 @@
+
+<br>
+
+<div class="container">
+ <div class="row">
+  <div class="col-md-12">
+
+    <h2 style=" padding: 1em;
+    background: #aaa;
+    color:white;
+    clear: left;
+    text-align: center;">
+     LOGIN PAGE
+    </h2>
+
+   </div>
+
+ </div>
+ <br>
+
+
+<div class="col-md-4">
+
+
+  <form class="form" ng-submit="LoginUser()">
+
+
+
+
+
+
+    <div class="form-group">
+      <label>Username</label>
+      <input type="text" class="form-control" name="username" ng-model="User.Email" required>
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+        <input type="password" class="form-control" name="password" ng-model="User.Password" required>
+      </div>
+      <div>
+ <button type="submit"  class="btn btn-success" >Login</button>
+          <a href="#/register"><button type="submit" class="btn btn-primary" >New user? Register Here</button></a>
+
+      </div>
+  </form>
+
+</div>

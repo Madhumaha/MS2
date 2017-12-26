@@ -1,0 +1,340 @@
+<br>
+<br>
+<br>
+
+<div class="container">
+<div class="jumbotron">
+<div class="row">
+<div class="panel-body">
+  <form id="bookForm" ng-submit="addDriver()">
+      <table class="table table-bordered" id="hello">
+
+<tr class="warning"><td colspan="2"><h3 style="font-family:sans-serif; font-weight:bolder">ADD DRIVER</h3></td><tr>
+
+
+
+<tr class="success"><td>First Name</td>
+        <td >
+          <input type="text" class="form-control" id="driverFName" placeholder="Enter First Name" ng-model="driver.fname">
+
+</td>
+        </tr>
+
+
+
+<tr class="success"><td>Last Name</td>
+<td>
+  <input type="text" class="form-control" id="driverLName" placeholder="Enter Last Name" ng-model="driver.lname">
+
+
+</td>
+        </tr>
+
+
+
+
+<tr class="success"><td>Phone Number</td>
+        <td >                         <input type="text" class="form-control" id="phone" placeholder="Enter Phone Number" ng-model="driver.phone" required/>
+</td>
+        </tr>
+
+
+
+<tr class="success"><td>Email Address</td>
+        <td >                                  <input type="text" class="form-control" id="emailAdd" placeholder="Enter Email Address" ng-model="driver.emailuser" required>
+
+</td>
+        </tr>
+
+
+
+
+<tr class="success"><td>Address</td>
+        <td >                            <input type="text" class="form-control" id="address" placeholder="Enter Address" 
+ng-model="driver.add" required>
+
+
+</td>
+        </tr>
+
+<tr class="success"><td>License</td>
+        <td >                                    <input type="text" class="form-control" id="License" placeholder="Enter License" ng-model="driver.license" required>
+
+
+</td>
+        </tr>
+
+
+
+<tr class="success"><td>Car Name</td>
+        <td >
+          <input type="text" class="form-control" id="carname" placeholder="Enter Car Name" ng-model="driver.carname">
+
+
+</td>
+        </tr>
+
+
+
+
+
+
+        <tr class="success">
+          <td class="col-md-4"> Category</td>
+          <td class="col-md-4" >
+<select ng-model="driver.Category" id="catCab" class="form-control" required>
+          <option value=""></option>
+          <option value="micro">Micro</option>
+          <option value="mini">Mini</option>
+          <option value="prime">Prime</option>
+          <option value="lux">Lux</option>
+         </select>
+
+</td>
+
+     </tr>
+
+
+
+
+
+         <tr class="success"><td>Car Model</td>
+        <td >                          <input type="text" class="form-control" id="carmodel" placeholder="Enter Car Model" ng-model="driver.carmodel" required>
+
+
+</td>
+        </tr>
+        <tr class="success">
+          <td>Car Number</td>
+          <td>                 <input type="text" class="form-control" id="carnumber" placeholder="Enter Car Number" ng-model="driver.carnumber" required>
+
+</td>
+        </tr>
+
+
+
+
+
+
+
+
+        <tr>
+            <td colspan="2">  <center>    <button  class="btn btn-warning" style="width: 100%;">Submit</button></center>
+        </tr>
+
+      </table>
+    </form>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+<h1 style="font-family:sans-serif; font-weight:bolder">VIEW DRIVER DETAILS</h1>
+    <div><br></div>
+      <div class="row">
+        <div class="col-md-12">
+         <div class="table-responsive">
+          <table id="mytable" class="table table-bordred">
+             <thead>
+                    <th>FIRST NAME</th>
+                    <th>LAST NAME</th>
+                    <th>PHONE</th>
+                    <th>Email</th>
+                    <th>ADDRESS</th>
+                    <th>LICENSE</th>
+                    <th>CAR NAME</th>
+                    <th>CAR MODEL</th>
+                    <th>CAR CATEGORY</th>
+                    <th>CAR NUMBER</th>
+                    <th>EDIT</th>
+                    <th>Delete</th>
+                </thead>
+                <tbody>
+               <tr ng-repeat="d in CabData" id="d._id">
+
+                        <td>{{d.Cab[0].FirstName}}</td>
+                        <td>{{d.Cab[0].LastName}}</td>
+                        <td>{{d.Phone}}</td>
+                        <td>{{d.Cab[0].UserEmail}}</td>
+                        <td>{{d.Cab[0].Address}}</td>
+                        <td>{{d.License}}</td>
+                        <td>{{d.CarName}}</td>
+                        <td>{{d.CarModel}}</td>
+                        <td>{{d.CarCategory}}</td>
+                        <td>{{d.CarNumber}}</td>
+                        <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary" ng-click="getDriverById(d)"  data-title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></p></td>
+                        <td><button class="btn btn-danger" ng-click="deleteDriver(d)" ><i class="fa fa-times" aria-hidden="true"></i></button></p></td>
+
+                 </tr>
+              </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <div class="modal fade" id="editDriver" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+          <div class="modal-dialog">
+        <div class="modal-content">
+              <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+            <h4 class="modal-title custom_align" id="Heading">Edit Driver Detail</h4>
+          </div>
+              <div class="modal-body">
+                <div class="row">
+                  <form >
+  <table class="table table-bordered" id="hello">
+
+<tr class="warning"><td colspan="2"><h3 style="font-family:sans-serif; font-weight:bolder">ADD DRIVER</h3></td><tr>
+
+
+
+<tr class="success"><td>First Name</td>
+        <td >                              <input type="text" class="form-control" id="dFName" ng-model="getDriver[0].User
+
+[0].FirstName">
+
+
+</td>
+        </tr>
+
+
+
+<tr class="success"><td>Last Name</td>
+        <td >                         <input type="text" class="form-control" id="dLName" ng-model="getDriver[0].User
+
+[0].LastName">
+
+
+
+</td>
+        </tr>
+
+
+
+
+<tr class="success"><td>Phone Number</td>
+        <td >                                    <input type="text" class="form-control" id="ph"  ng-model="getDriver
+
+[0].Phone">
+
+</td>
+        </tr>
+
+
+
+<tr class="success"><td>Email Address</td>
+        <td >                                          <input type="text" class="form-control" id="de" ng-model="getDriver
+
+[0].User[0].UserEmail">
+
+
+</td>
+        </tr>
+
+
+
+
+<tr class="success"><td>Address</td>
+        <td >                                       <input type="text" class="form-control" id="add"  ng-model="getDriver
+
+[0].User[0].Address">
+
+
+
+</td>
+        </tr>
+
+<tr class="success"><td>License</td>
+        <td >                      <input type="text" class="form-control" id="LS"  ng-model="getDriver[0].License">
+
+
+
+</td>
+        </tr>
+
+
+
+<tr class="success"><td>Car Name</td>
+        <td >                 <input type="text" class="form-control" id="carname"  ng-model="getDriver[0].CarName">
+
+
+
+</td>
+        </tr>
+
+
+
+
+
+
+        <tr class="success">
+          <td class="col-md-4"> Category</td>
+          <td class="col-md-4" >
+
+
+
+<select ng-model="getDriver[0].CarCategory" id="carcategory" class="form-control">
+          <option value=""></option>
+          <option value="micro">Micro</option>
+          <option value="mini">Mini</option>
+          <option value="prime">Prime</option>
+          <option value="lux">Lux</option>
+         </select>
+
+</td>
+
+     </tr>
+
+
+
+
+
+         <tr class="success"><td>Car Model</td>
+        <td >                                         <input type="text" class="form-control" id="carmodel"  ng-model="getDriver[0].CarModel">
+
+
+
+</td>
+        </tr>
+        <tr class="success">
+          <td>Car Number</td>
+          <td>                             <input type="text" class="form-control" id="carnumber"  ng-model="getDriver[0].CarNumber">
+
+
+</td>
+        </tr>
+
+      </table>
+
+
+ </form>
+
+
+                </div>
+            </div>
+              <div class="modal-footer ">
+
+
+               <button  class="btn btn-warning" style="width: 100%;" ng-click="editDriver(getDriver[0])">Update</button></center>
+
+
+
+
+          </div>
+            </div>
+        <!-- /.modal-content -->
+      </div>
+          <!-- /.modal-dialog -->
+        </div>

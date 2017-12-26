@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="nav navbar-nav">
+&nbsp;&nbsp;&nbsp;Book Exclusive cabs pan India
+</div>
+<div class="nav navbar-nav navbar-right">
+  <span style="font-size:17px;color:#000099;font-weight:bold;">Support 24X7 - 080 - 6060 8888  &nbsp;&nbsp;&nbsp;<i class="fa fa-envelope"> </i> booking@nammacab.co.in </span>
+</div>
+</div>
+<br>
+<nav  class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#/"><img src ="./public/Img/data/bookmycab.jpg" height="30px"/></a>
+    </div>
+    <ul class="nav navbar-nav">
+
+      <li ng-hide="isLoggedIn && myUserrole=='Driver'"><a href="#/"><i class="fa fa-home"></i> Home</a></li>
+      <li ng-show="isLoggedIn && myUserrole=='Driver'"><a href="#/driver"><i class="fa fa-home"></i> Home</a></li>
+      <li ng-show="isLoggedIn && myUserrole=='Customer' "><a href="#/start"><i class="fa fa-car"></i> Book My Cab</a></li>
+      <li ng-show="isLoggedIn && myUserrole=='Customer' "><a href="#/rides">My Rides</a></li>
+      <li ng-show="isLoggedIn && myUserrole=='Driver'"><a href="#/booking">My Bookings</a></li>
+
+      <li class="dropdown" ng-show="isLoggedIn && myUserrole=='Admin'"><a class="dropdown-toggle" data-toggle="dropdown" href=""><i class="fa fa-user-secret"></i>Admin<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#/addtarriff">Manage Tarriff</a></li>
+          <li><a href="#/adddriver">Manage Drivers and Cabs</a></li>
+        </ul>
+      </li>
+
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li ng-hide="isLoggedIn"><a href="#/register"><i class="fa fa-user"></i> Sign-Up</a></li>
+      <li ng-hide="isLoggedIn"><a href="#/login"><i class="fa fa-sign-in"></i> Sign-In</a></li>
+
+      <li ng-show="isLoggedIn"><a href="">Hey {{myUsername}} <i class="fa fa-hand-pointer-o"></i></a></li>
+      <li ng-show="isLoggedIn"><a href="#/Password">Change Password</a></li>
+      <li ng-show="isLoggedIn"><a href="#/logout"> Sign-Out</a></li>
+    </ul>
+  </div>
+</nav>

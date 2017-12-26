@@ -1,0 +1,64 @@
+<br>
+<br>
+
+
+<div class="container">
+   <div class="row">
+     <div>
+       <form>
+         <div class="form-group col-xs-10">
+            <button type="button" class="btn btn-success" data-toggle="modal" id="myBtn">Show Current Booking</button>
+            <!-- Modal -->
+            <div class="modal fade" id="myDriverModal" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                   <h4 class="modal-title custom_align" id="Heading">Booking Details</h4>
+                  </div>
+                  <div class="modal-body">
+                    <table class="table table-bordered">
+
+            <tr class="success">
+              <td>Starting Point</td>
+              <td id="fp"></td>
+
+            </tr>
+            <tr class="success">
+              <td>Destination Point</td>
+              <td id="ep"></td>
+
+            </tr>
+            <tr class="success">
+              <td>Customer Name</td>
+              <td id="cu"></td>
+            </tr>
+            <tr class="success">
+              <td>Phone Number</td>
+              <td id="mo"></td>
+            </tr>
+            <tr class="success">
+              <td>Total Fare</td>
+              <td id="fa"></td>
+            </tr>
+
+        </table>
+
+              </div>
+                <div class="modal-footer ">
+                <button type="button" class="btn btn-warning" style="width: 100%;" data-dismiss="modal">Book</button>
+              </div>
+                </div>
+            <!-- /.modal-content -->
+          </div>
+              <!-- /.modal-dialog -->
+         </div>
+       </form>
+     </div>
+     <div class="col-md-3">
+
+      <div id="map_canvas"></div>
+
+     </div>
+   </div>
+</div>

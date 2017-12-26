@@ -1,0 +1,74 @@
+<br>
+<br>
+
+
+
+
+<div class="container">
+ <div class="row">
+  <div class="col-md-12">
+
+    <h2 style=" padding: 1em;
+    background: #aaa;
+    color:white;
+    clear: left;
+    text-align: center;">
+     Booking Page(Ride Later)
+    </h2>
+
+   </div>
+
+ </div>
+ <br>
+
+
+
+
+ <div class="row">
+     <div class="col-sm-12">
+          <div class="jumbotron">
+  <div class="panel panel-default">
+
+    <div class="panel-body">
+      <form id="bookForm">
+          <table class="table table-bordered" id="hello">
+            <tr class="success">
+              <td class="col-md-4"> Start</td>
+              <td class="col-md-4" id="sp"> {{startPoint}}</td>
+
+            </tr>
+            <tr class="success"><td>End</td>
+            <td id="ep">{{endPoint}}</td>
+            </tr>
+            <tr class="success">
+              <td>Date and time</td>
+              <td>{{bookDate|date: "MMM/dd/y hh.mm a"}} {{bookTime}}</td>
+            </tr>
+            <tr class="success">
+              <td >Distance</td>
+              <td >
+            {{di}}
+            </td>
+            </tr class="success">
+            <tr class="success">
+                <td >Time</td>
+              <td>
+              {{tym}}</td>
+            </tr>
+            <tr class="success">
+                <td >Amount</td>
+                <td>{{Tot | number : 2}}
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">  <center> <button style="width:100%;" class="btn btn-warning" ng-click="confirmBooking()">Confirm Booking</button></center>
+            </tr>
+
+          </table>
+        </form>
+    </div>
+
+  </div>
+  </div>
+</div>
+</div>

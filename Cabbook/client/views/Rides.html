@@ -1,0 +1,55 @@
+<br>
+<br>
+
+
+
+
+
+<div class="container">
+ <div class="row">
+  <div class="col-md-12">
+
+    <h2 style=" padding: 1em;
+    background: #aaa;
+    color:white;
+    clear: left;
+    text-align: center;">
+    All Rides Page
+    </h2>
+
+   </div>
+
+ </div>
+ <br><div class="container">
+  <div class="row">
+    <div class="col-md-12">
+     <div class="table-responsive">
+      <table id="mytable" class="table table-bordred table-striped">
+         <thead>
+                <th>CATEGORY</th>
+                <th>PICKUP</th>
+                <th>DESTINATION</th>
+                <th>FARE</th>
+                <th>CAB NUMBER</th>
+                <th>CAR</th>
+                <th>DRIVER NAME</th>
+                <th>DRIVER MOBILE</th>
+          </thead>
+            <tbody>
+           <tr ng-repeat="d in GetAllRides">
+                    <td>{{d.CabCategory}}</td>
+                    <td>{{d.Pickup}}</td>
+                    <td>{{d.Destination}}</td>
+                    <td>{{d.Amount|number:2}}</td>
+                    <td>{{d.DriverCab.carn}}</td>
+                    <td>{{d.DriverCab.cart}}</td>
+                    <td>{{d.DriverCab.driverName}}</td>
+                    <td>{{d.DriverCab.mobi}}</td>
+
+             </tr>
+          </tbody>
+      </table>
+    </div>
+</div>
+</div>
+</div>

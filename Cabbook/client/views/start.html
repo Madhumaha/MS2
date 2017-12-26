@@ -1,0 +1,257 @@
+<br>
+<br>
+
+<div class="container">
+ <div class="row">
+  <div class="col-md-12">
+
+    <h2 style=" padding: 1em;
+    background: #aaa;
+    color:white;
+    clear: left;
+    text-align: center;">
+     Book A Ride
+    </h2>
+
+   </div>
+
+ </div>
+ <br>
+
+<div class="row">
+  <div class="col-sm-6">
+    <div class="jumbotron">
+
+
+
+      <div class="row">
+      <div class="panel-body">
+          <form id="routeForm">
+              <table class="table table-bordered" id="hello">
+
+
+
+
+
+        <tr class="success"><td><label>Pick Up:</label></td>
+                <td >                  <input class="form-control" type="text" id="routeStart" name="autocomplete" required>
+
+      </td>
+                </tr>
+
+
+
+        <tr class="success"><td><label >Drop At:</label></td>
+                <td >                      <input class="form-control" type="text" id="routeEnd" name="autocomplete"  placeholder="Enter the destination" required>
+
+
+      </td>
+                </tr>
+
+
+
+
+        <tr class="success"><td><label>Choose Cab</label></td>
+                <td >
+
+                  <label ng-repeat="d in AllTarriffs" class="radopt">
+                <input class="form-control" type="radio" value="{{d.Category}}" name="optradio"  required/>
+                <img src="./public/Img/car2.png" class="img-rounded">
+                <div><center>{{d.Category}}</center></div>
+                </label>
+              </td>
+
+                </tr>
+                <tr>
+                    <td colspan="2">  <center>    <button  class="btn btn-warning" style="width: 100%;" id="getDiv" ng-click="getEstimate()">Get Details For Ride</button></center>
+                </tr>
+              </table>
+            </form>
+
+
+</div>
+</div>
+
+  <div>
+
+<table class="table"  id="showDur" >
+  <thead>
+      <tr>
+        <th> Distance</th>
+        <th>Time</th>
+        <th>Choose Ride</th>
+      </tr>
+    </thead>
+    <tr class="info">
+           <td> <p id="spanDistance"></p></td>
+           <td> <p id="spanTime"></p></td>
+           <td>
+             <button class="btn btn-info" id="hi"  ng-click="getFare()">Ride Now</button>
+               <button class="btn btn-info"  data-toggle="modal" data-target="#myModal">Ride Later</button>
+
+           </td>
+         </tr>
+
+
+</table>
+  </div>
+
+</div>
+</div>
+
+
+  <div class="col-sm-6">
+    <div class="clear"></div>
+    <div id="map_canvas"></div>
+
+  </div>
+</div>
+<div><br/></div>
+<div class="container">
+
+  <div><br/><br/><br/></div>
+
+  <div class="modal fade" id="myFareModal" role="dialog">
+<div class="modal-dialog">
+
+<!-- Modal content-->
+<div class="modal-content">
+<div class="modal-header">
+ <button type="button" class="close" data-dismiss="modal">&times;</button>
+ <h4 class="modal-title">Fare Details</h4>
+</div>
+<div class="modal-body">
+ <div class="form-group">
+   <div>{{Fare|number:2}}
+   </div>
+  </div>
+</div>
+<div class="modal-footer ">
+<button type="button"  class="btn btn-warning" ng-click="checkcabcat()" ><span class="glyphicon glyphicon-ok-sign"></span> Confirm</button>
+<button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+</div>
+</div>
+
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myfinalModal" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+       <h4 class="modal-title custom_align" id="Heading"> Booking Details</h4>
+      </div>
+      <div class="modal-body">
+        <table class="table table-bordered">
+
+<tr class="success">
+  <td>Driver Name</td>
+  <td>{{DriverName}}</td>
+
+</tr >
+<tr class="success">
+  <td>Driver Mobile</td>
+  <td>{{DriverMobile}}</td>
+
+</tr>
+<tr class="success">
+  <td>Pick up</td>
+  <td id="st"></td>
+</tr>
+
+<tr class="success">
+  <td>Drop At</td>
+  <td id="en"></td>
+</tr>
+<tr class="success">
+  <td>Car</td>
+  <td>{{DriverCar}}</td>
+</tr>
+<tr class="success">
+  <td>Cab Number</td>
+  <td>{{DriverCarN}}</td>
+</tr>
+<tr class="success">
+  <td>Total Fare</td>
+  <td id="mon"></td>
+</tr>
+
+</table>
+
+  </div>
+    <div class="modal-footer ">
+    <button type="button" class="btn btn-warning" data-dismiss="modal" style="width: 100%;" >Book </button>
+  </div>
+    </div>
+<!-- /.modal-content -->
+</div>
+  <!-- /.modal-dialog -->
+</div>
+  <div class="modal fade" id="myModal" role="dialog">
+<div class="modal-dialog">
+
+<!-- Modal content-->
+<div class="modal-content">
+<div class="modal-header">
+ <button type="button" class="close" data-dismiss="modal">&times;</button>
+ <h4 class="modal-title">Pick Ride</h4>
+</div>
+<div class="modal-body">
+  <div class="row">
+ <div class="panel-body">
+     <form id="bookForm" >
+         <table class="table table-bordered" id="hello">
+
+
+
+
+
+   <tr class="success"><td>Pick Date:</td>
+           <td >                       <input type="text"  class="form-control" id="datepicker">
+
+
+ </td>
+           </tr>
+
+
+
+   <tr class="success"><td>Pick Time:</td>
+           <td >                          <input id='timepicker'  class="form-control" type='text' name='timepicker'/>
+
+
+ </td>
+           </tr>
+
+
+
+
+         </table>
+       </form>
+   </div>
+
+ </div>
+</div>
+<div class="modal-footer">
+ <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+ <!-- <button type="button" ng-click="Ridelater()" class="btn btn-primary" data-dismiss="modal">Book Now</button> -->
+</div>
+</div>
+
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+</div>
+</div>
+</div>
